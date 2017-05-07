@@ -3,6 +3,7 @@
   "title": "ID Kommunikation WordPress Starter Theme",
   "description": "",
   "version": "0.1.0",
+  "license": "MIT",
   "homepage": "https://idkommunikation.com/",
   "author": {
     "name": "ID Kommunikation",
