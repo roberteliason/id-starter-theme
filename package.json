@@ -2,8 +2,13 @@
   "name": "id-starter-theme",
   "title": "ID Kommunikation WordPress Starter Theme",
   "description": "",
+<<<<<<< ours
   "version": "0.1.0",
   "license": "MIT",
+=======
+  "version": "0.1.1",
+  "license": "UNLICENSED",
+>>>>>>> theirs
   "homepage": "https://idkommunikation.com/",
   "author": {
     "name": "ID Kommunikation",
