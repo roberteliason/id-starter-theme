@@ -20,8 +20,12 @@
   "require-dev": {
     "eloquent/composer-npm-bridge": "^3"
   },
-  "post-install-cmd":
-    [],
-  "post-update-cmd":
-    []
+  "scripts": {
+    "post-install-cmd": [
+      "npm install"
+    ],
+    "post-update-cmd": [
+      "npm install"
+    ]
+  }
 }
