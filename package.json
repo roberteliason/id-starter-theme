@@ -1,0 +1,42 @@
+{
+  "name": "a-new-hope-theme",
+  "title": "Shipyard Starter WordPress Theme v2",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "http://theshipyard.se/",
+  "author": {
+    "name": "The Shipyard",
+    "email": "info@theshipyard.se",
+    "url": "https://theshipyard.se/"
+  },
+  "repository": {
+    "private": true
+  },
+  "devDependencies": {
+    "bourbon": "^4.2.7",
+    "bourbon-bitters": "^1.2.1",
+    "bourbon-neat": "^1.8.0",
+    "browser-sync": "^2.16.1",
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
+    "jquery": "^3.1.1",
+    "modularscale-sass": "^2.1.1",
+    "underscore": "^1.8.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vue": "^1.0.27",
+    "watchify": "^3.7.0"
+  },
+  "keywords": []
+}

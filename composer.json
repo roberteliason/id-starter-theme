@@ -1,0 +1,31 @@
+{
+  "name": "shipyard/shipyard-starter-theme-v2",
+  "description": "Shipyard Starter WordPress Theme",
+  "keywords": ["wordpress", "shipyard"],
+  "homepage": "http://theshipyard.se",
+  "license": "MIT",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Richard Sweeney",
+      "email": "richards@theshipyard.se",
+      "homepage": "http://theshipyard.se"
+    },
+    {
+      "name": "Robert Eliason",
+      "email": "roberte@theshipyard.se",
+      "homepage": "http://theshipyard.se"
+    },
+    {
+      "name": "Valentin Cvetkovski",
+      "email": "valentinc@theshipyard.se",
+      "homepage": "http://theshipyard.se"
+    }
+  ],
+  "type": "wordpress-theme",
+  "require": {
+    "php": ">=5.4",
+    "composer/installers": "~1.0"
+  }
+}
+
