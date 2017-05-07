@@ -69,9 +69,9 @@ gulp.task('default', function() {
 	gulp.watch('./resources/sass/**/*.scss', ['sass']);
 
 	browserSync.init({
-		proxy: "olab-drift.dev"
+		proxy: "local.dev"
 	});
-	gulp.watch(['*.php', './views/*.php','./views/**/*.php','./views/**/**/*.php','./views/**/**/**/*.php']).on('change', browserSync.reload);
+	gulp.watch(['*.php']).on('change', browserSync.reload);
 
 	buildScript(false);
 });
@@ -88,4 +88,3 @@ gulp.task('sass', function() {
 		.pipe(notify('Sass compiled and reloaded'))
 		.pipe(browserSync.stream());
 });
-

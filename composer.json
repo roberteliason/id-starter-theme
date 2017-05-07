@@ -24,7 +24,7 @@
       "npm install"
     ],
     "post-update-cmd": [
-      "npm install"
+      "npm update"
     ]
   }
 }
