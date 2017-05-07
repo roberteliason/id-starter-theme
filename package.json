@@ -1,13 +1,13 @@
 {
-  "name": "a-new-hope-theme",
-  "title": "Shipyard Starter WordPress Theme v2",
+  "name": "id-starter-theme",
+  "title": "ID Kommunikation WordPress Starter Theme",
   "description": "",
   "version": "0.1.0",
-  "homepage": "http://theshipyard.se/",
+  "homepage": "https://idkommunikation.com/",
   "author": {
-    "name": "The Shipyard",
-    "email": "info@theshipyard.se",
-    "url": "https://theshipyard.se/"
+    "name": "ID Kommunikation",
+    "email": "info@idkommunikation.com",
+    "url": "https://idkommunikation.com/"
   },
   "repository": {
     "private": true
