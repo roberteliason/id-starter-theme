@@ -21,10 +21,12 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "npm install"
+      "npm install",
+      "ln -s node_modules/.bin/gulp gulp"
     ],
     "post-update-cmd": [
-      "npm update"
+      "npm update",
+      "ln -s node_modules/.bin/gulp gulp"
     ]
   }
 }
