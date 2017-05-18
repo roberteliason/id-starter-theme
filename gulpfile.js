@@ -69,7 +69,7 @@ gulp.task('default', function() {
 	gulp.watch('./resources/sass/**/*.scss', ['sass']);
 
 	browserSync.init({
-		proxy: "local.dev"
+		proxy: "namaste.dev"
 	});
 	gulp.watch(['*.php']).on('change', browserSync.reload);
 
