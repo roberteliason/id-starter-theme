@@ -8,7 +8,6 @@
  *
  * @package _s
  */
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -20,30 +19,34 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+<div id="page" class="site">
+    <header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
+			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+        <div class="user-profile">
+            <?php if( is_user_logged_in() ) : ?>
+                <?php echo do_shortcode( '[namaste-points]' ) ?>&nbsp;<?php _e( 'Points', 'ehalsa' ) ?>
+            <?php endif; ?>
+        </div>
+
+        <nav id="site-navigation" class="main-navigation" role="navigation">
+            <?php if( is_user_logged_in() ) : ?>
+                <a href="<?php echo wp_logout_url( home_url() ) ?>"><?php _e('Log out', 'ehalsa') ?></a>
+            <?php endif; ?>
+            <!--
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
+			-->
+	    </nav>
+	    <!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

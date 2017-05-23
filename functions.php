@@ -7,6 +7,70 @@
  * @package _s
  */
 
+/**
+ * If this is a dev environment, look for Kint in vendors dir and include if found
+ * Else raise a flag
+ *
+ * d( $var ); prints a dump of $var
+ * dd( $var ); same only it die(s) after
+ *
+ * @see http://raveren.github.io/kint/
+ */
+add_action( 'init', function() {
+    $vendor_path = preg_replace( '/wp/', 'content/vendor', ABSPATH );
+
+    if ( true === idkomm_is_dev() ) {
+        $path_to_kint = $vendor_path . 'kint-php/kint/Kint.class.php';
+        if ( true === file_exists( $path_to_kint ) ) {
+            require_once $path_to_kint;
+        }
+        else {
+            add_action( 'admin_notices', function() {
+                $class = "error";
+                $message = "Could not find Kint in Vendors dir, please check your Composer file";
+                echo"<div class=\"$class\"> <p>$message</p></div>";
+            } );
+        }
+    }
+
+
+    // Catch any stray calls to d() if Kint is not loaded
+    if ( !function_exists('d') ) {
+        function d() {
+            return;
+        }
+    }
+
+});
+
+
+/**
+ * Check if site is on stage
+ *
+ * @return bool
+ */
+function idkomm_is_stage() {
+    if ( strpos( site_url(), 'stage' ) !== false ) {
+        return true;
+    }
+    return false;
+}
+
+
+/**
+ * Check if site is on dev
+ *
+ * @return bool
+ */
+function idkomm_is_dev() {
+    if ( strpos( site_url(), '.dev' ) !== false ) {
+        return true;
+    }
+    return false;
+}
+
+
+
 if ( ! function_exists( 'idkomm_theme_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -104,7 +168,7 @@ add_action( 'widgets_init', 'idkomm_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function idkomm_enqueue_scripts() {
+function idkomm_scripts() {
 	wp_enqueue_style( 'base-style', get_template_directory_uri() . '/resources/css/main.css' );
 
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/resources/js/main.js', array('jquery'), '20151215', true );
@@ -115,7 +179,42 @@ function idkomm_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'idkomm_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'idkomm_scripts' );
+
+
+/**
+ * Redirect all non logged in users to login page
+ */
+function idkomm_redirect_to_login() {
+
+    $current_template = idkomm_get_current_template();
+
+    if ( $current_template != 'page_registration.php' && ! is_user_logged_in() && ! is_front_page() ) {
+        wp_redirect( home_url(), 301 );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'idkomm_redirect_to_login' );
+
+
+/**
+ * Get the filename of the current template
+ *
+ * @return string
+ */
+function idkomm_get_current_template() {
+    return basename(get_page_template());
+}
+
+
+/**
+ * Add a register link to the login form
+ */
+function idkomm_add_register_link_to_login_form() {
+    echo( '<a href="' . site_url('registration') . '"><button>' . __( 'Register', 'ehealth' ) . '</button></a>' );
+}
+add_action('login_form_bottom', 'idkomm_add_register_link_to_login_form');
+
 
 /**
  * Implement the Custom Header feature.
